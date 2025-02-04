@@ -10,6 +10,10 @@ CC_FLAGS = -Wall -Werror -Wextra
 VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
 
 SCRS =  main.c \
+		verify_input.c \
+		error_handling.c \
+		stack_manipulation.c \
+		utils.c \
 		push_swap.h \
 
 
