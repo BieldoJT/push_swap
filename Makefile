@@ -14,7 +14,6 @@ SCRS =  main.c \
 		error_handling.c \
 		stack_manipulation.c \
 		utils.c \
-		push_swap.h \
 
 
 all: ${LIBFT} ${NAME}
