@@ -10,7 +10,7 @@ void print_stack(t_stack *stack)
 		ft_printf("value: %d\n",aux->content);
 		aux = aux->next;
 	}
-	
+
 }
 
 int main(int argc, char **argv)
@@ -31,15 +31,30 @@ int main(int argc, char **argv)
 
 	print_stack(stack_a);
 
-	ft_printf("lista apos usar o swap a\n");
+	ft_printf("\nlista apos usar o SWAP A\n");
 	swap_stack(stack_a);
 	print_stack(stack_a);
 
-	ft_printf("lista apos usar o push b\n");
+	ft_printf("\nlista apos usar o PUSH B\n");
 	push_switch_stack(stack_a,stack_b);
+	ft_printf("\nSTACK A:\n");
 	print_stack(stack_a);
 	ft_printf("\n");
+	ft_printf("\nSTACK B:\n");
 	print_stack(stack_b);
+
+
+	ft_printf("\nlista apos usar o ROTATE A\n\n");
+	rotate_stack(stack_a);
+	ft_printf("\nSTACK A:\n");
+	print_stack(stack_a);
+
+
+	ft_printf("\nlista apos usar o REVERSE ROTATE A\n");
+	reverse_rotate_stack(stack_a);
+	ft_printf("\nSTACK A:\n");
+	print_stack(stack_a);
+
 
 
 

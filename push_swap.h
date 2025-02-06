@@ -37,6 +37,8 @@ long ft_atoil(const char *str);
 
 //stack_operators.c
 void push_switch_stack(t_stack *to_lose, t_stack *to_recieve);
+void rotate_stack(t_stack *stack);
+void reverse_rotate_stack(t_stack *stack);
 
 
 

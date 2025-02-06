@@ -23,7 +23,6 @@ void push_stack(t_stack *stack, int value)
 	node->next = stack->top;
 	stack->top = node;
 	stack->size++;
-
 }
 
 int pop_stack(t_stack *stack)
@@ -46,7 +45,7 @@ void swap_stack(t_stack *stack)
 
     if ((stack->top == NULL) || (stack->top->next == NULL))
         return ;
-    
+
     temp = stack->top->next;
     stack->top->next = temp->next;
     temp->next = stack->top;
