@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int is_valid_number(char *str)
+static int is_valid_number(char *str)
 {
 	int	i;
 	long num;
@@ -23,7 +23,7 @@ int is_valid_number(char *str)
 	return (1);
 }
 
-int is_duplicate(t_stack *stack, int num)
+static int is_duplicate(t_stack *stack, int num)
 {
 	t_node *node;
 
@@ -35,6 +35,49 @@ int is_duplicate(t_stack *stack, int num)
 		node = node->next;
 	}
 	return (0);
+}
+
+static void sort_list(int *lst, int size)
+{
+	int	modified;
+	int	i;
+	int	temp;
+
+	modified = 1;
+	while (modified)
+	{
+		i = 0;
+		modified = 0;
+		while(i < size -1)
+		{
+			if (lst[i] > lst[i + 1])
+			{
+				temp = lst[i];
+				lst[i] = lst[i + 1];
+				lst[i + 1] = temp;
+				modified = 1;
+			}
+			i++;
+		}
+	}
+}
+
+static int	*sort_input(t_stack *stack)
+{
+	t_node	*aux;
+	int		*lst;
+	int		i;
+
+	aux = stack->top;
+	lst = (int*)malloc(stack->size * sizeof(int));
+	i = 0;
+	while(i < stack->size)
+	{
+		lst[i++] = aux->content;
+		aux = aux->next;
+	}
+	sort_list(lst, stack->size);
+	return (lst);
 }
 
 t_stack *parse_input(int argc, char **argv)
@@ -56,6 +99,7 @@ t_stack *parse_input(int argc, char **argv)
 			print_error(1);
 		push_stack(stack, num);
 	}
+	stack->lst_int = sort_input(stack);
 	return (stack);
 }
 

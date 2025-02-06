@@ -15,12 +15,11 @@ typedef struct s_stack
 {
 	t_node			*top;  // Ponteiro para o topo da pilha
 	int				size;  // Tamanho da pilha
+	int				*lst_int; //lista de inteiros ordenados
 }	t_stack;
 
 //verify_input.c
 t_stack *parse_input(int argc, char **argv);
-int is_duplicate(t_stack *stack, int num);
-int is_valid_number(char *str);
 
 //error_handling.c
 void print_error(int i);
