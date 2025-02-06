@@ -13,6 +13,7 @@ SCRS =  main.c \
 		verify_input.c \
 		error_handling.c \
 		stack_manipulation.c \
+		stack_operators.c \
 		utils.c \
 
 

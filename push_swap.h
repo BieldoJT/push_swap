@@ -27,12 +27,18 @@ void print_error(int i);
 
 //stack_manipulation.c
 t_stack *init_stack(void);
-void push(t_stack *stack, int value);
-int pop(t_stack *stack);
+void push_stack(t_stack *stack, int value);
+void swap_stack(t_stack *stack);
 void free_stack(t_stack *stack);
+int pop_stack(t_stack *stack);
 
 //utils.c
 long ft_atoil(const char *str);
+
+//stack_operators.c
+void push_switch_stack(t_stack *to_lose, t_stack *to_recieve);
+
+
 
 
 #endif

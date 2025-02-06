@@ -54,7 +54,7 @@ t_stack *parse_input(int argc, char **argv)
 		num = ft_atoi(argv[argc]);
 		if (is_duplicate(stack, num))
 			print_error(1);
-		push(stack, num);
+		push_stack(stack, num);
 	}
 	return (stack);
 }

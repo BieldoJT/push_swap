@@ -12,7 +12,7 @@ t_stack *init_stack(void)
 	return (stack);
 }
 
-void push(t_stack *stack, int value)
+void push_stack(t_stack *stack, int value)
 {
 	t_node *node;
 
@@ -26,7 +26,7 @@ void push(t_stack *stack, int value)
 
 }
 
-int pop(t_stack *stack)
+int pop_stack(t_stack *stack)
 {
 	t_node	*temp;
 	int value;
@@ -39,6 +39,18 @@ int pop(t_stack *stack)
 	free(temp);
 	stack->size--;
 	return (value);
+}
+void swap_stack(t_stack *stack)
+{
+    t_node  *temp;
+
+    if ((stack->top == NULL) || (stack->top->next == NULL))
+        return ;
+    
+    temp = stack->top->next;
+    stack->top->next = temp->next;
+    temp->next = stack->top;
+    stack->top = temp;
 }
 
 void free_stack(t_stack *stack)
