@@ -23,6 +23,7 @@ t_stack *parse_input(int argc, char **argv);
 
 //error_handling.c
 void print_error(int i);
+void finish_sort(t_stack *a, t_stack *b);
 
 //stack_manipulation.c
 t_stack *init_stack(void);
@@ -32,7 +33,10 @@ void free_stack(t_stack *stack);
 int pop_stack(t_stack *stack);
 
 //utils.c
-long ft_atoil(const char *str);
+long	ft_atoil(const char *str);
+char	**split_arguments(int argc, char **argv, int *new_argc);
+void	free_args(char **args);
+int	verify_order(t_stack *stack);
 
 //stack_operators.c
 void push_switch_stack(t_stack *to_lose, t_stack *to_recieve);

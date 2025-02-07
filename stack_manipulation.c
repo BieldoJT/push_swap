@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_stack *init_stack(void)
+t_stack	*init_stack(void)
 {
 	t_stack	*stack;
 
@@ -12,9 +12,9 @@ t_stack *init_stack(void)
 	return (stack);
 }
 
-void push_stack(t_stack *stack, int value)
+void	push_stack(t_stack *stack, int value)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = malloc(sizeof(t_node));
 	if (!node)
@@ -25,10 +25,10 @@ void push_stack(t_stack *stack, int value)
 	stack->size++;
 }
 
-int pop_stack(t_stack *stack)
+int	pop_stack(t_stack *stack)
 {
 	t_node	*temp;
-	int value;
+	int		value;
 
 	if (stack->size == 0)
 		return (-1);
@@ -39,20 +39,20 @@ int pop_stack(t_stack *stack)
 	stack->size--;
 	return (value);
 }
-void swap_stack(t_stack *stack)
+
+void	swap_stack(t_stack *stack)
 {
-    t_node  *temp;
+	t_node	*temp;
 
-    if ((stack->top == NULL) || (stack->top->next == NULL))
-        return ;
-
-    temp = stack->top->next;
-    stack->top->next = temp->next;
-    temp->next = stack->top;
-    stack->top = temp;
+	if ((stack->top == NULL) || (stack->top->next == NULL))
+		return ;
+	temp = stack->top->next;
+	stack->top->next = temp->next;
+	temp->next = stack->top;
+	stack->top = temp;
 }
 
-void free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
 	t_node	*node;
 
@@ -68,7 +68,5 @@ void free_stack(t_stack *stack)
 		free(stack);
 	}
 	else
-	{
 		free(stack);
-	}
 }

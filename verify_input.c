@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static int is_valid_number(char *str)
+static int	is_valid_number(char *str)
 {
 	int	i;
 	long num;
@@ -23,7 +23,7 @@ static int is_valid_number(char *str)
 	return (1);
 }
 
-static int is_duplicate(t_stack *stack, int num)
+static int	is_duplicate(t_stack *stack, int num)
 {
 	t_node *node;
 
@@ -37,7 +37,7 @@ static int is_duplicate(t_stack *stack, int num)
 	return (0);
 }
 
-static void sort_list(int *lst, int size)
+static void	sort_list(int *lst, int size)
 {
 	int	modified;
 	int	i;
@@ -80,25 +80,31 @@ static int	*sort_input(t_stack *stack)
 	return (lst);
 }
 
-t_stack *parse_input(int argc, char **argv)
+t_stack	*parse_input(int argc, char **argv)
 {
 	t_stack	*stack;
 	int		i;
 	int		num;
+	char	**args;
+	int		new_argc;
 
 	stack = init_stack();
 	if (!stack)
 		return (NULL);
-	i = 1;
-	while (i < argc)
+	args = split_arguments(argc, argv, &new_argc);
+	i = new_argc - 1;
+	while (i != -1)
 	{
-		if (!is_valid_number(argv[--argc]))
+		if (!is_valid_number(args[i]))
 			print_error(1);
-		num = ft_atoi(argv[argc]);
+		num = ft_atoi(args[i]);
 		if (is_duplicate(stack, num))
 			print_error(1);
 		push_stack(stack, num);
+		i--;
 	}
+	if (argc == 2)
+		free_args(args);
 	stack->lst_int = sort_input(stack);
 	return (stack);
 }

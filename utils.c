@@ -27,3 +27,50 @@ long ft_atoil(const char *str)
 	}
 	return (result * sign);
 }
+
+char	**split_arguments(int argc, char **argv, int *new_argc)
+{
+	char	**args;
+
+	if (argc == 2) // Caso seja uma string única com múltiplos números
+	{
+		if (argv[1][0] == '\0')
+			print_error(1);
+		args = ft_split(argv[1], ' '); // Divide a string por espaços
+		if (!args)
+			print_error(1);
+		*new_argc = 0;
+		while (args[*new_argc])
+			(*new_argc)++;
+		return (args);
+	}
+	*new_argc = argc - 1;
+	return (&argv[1]); // Retorna os argumentos normais
+}
+
+void free_args(char **args)
+{
+	int	i;
+
+	i = 0;
+	while (args[i])
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args);
+}
+
+int	verify_order(t_stack *stack)
+{
+	t_node	*aux;
+
+	aux = stack->top;
+	while (aux->next)
+	{
+		if(aux->content > aux->next->content)
+			return (0);
+		aux = aux->next;
+	}
+	return (1);
+}

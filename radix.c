@@ -1,11 +1,11 @@
 #include "push_swap.h"
 
-static void execute_push(t_stack *from, t_stack *to, char *op)
+static void	execute_push(t_stack *from, t_stack *to, char *op)
 {
 	push_switch_stack(from, to);
 	ft_printf("%s\n", op);
 }
-static void execute_rotate(t_stack *stack, char *op)
+static void	execute_rotate(t_stack *stack, char *op)
 {
 	rotate_stack(stack);
 	ft_printf("%s\n", op);
@@ -44,7 +44,7 @@ static void process_stack(t_stack *stack_a, t_stack *stack_b, int i, int *index_
 	}
 }
 
-void radix_sort(t_stack *stack_a, t_stack *stack_b)
+void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	max_bits;
 	int	*index_map;
