@@ -46,34 +46,35 @@ int main(int argc, char **argv)
 	ft_printf("\nSTACK A:\n");
 	print_stack(stack_a);
 
-	ft_printf("\nStack apos usar o SWAP A\n");
-	swap_stack(stack_a);
+	//ft_printf("\nStack apos usar o SWAP A\n");
+	//swap_stack(stack_a);
+	//print_stack(stack_a);
+//
+	//ft_printf("\nStack apos usar o PUSH B\n");
+	//push_switch_stack(stack_a,stack_b);
+	//ft_printf("\nSTACK A:\n");
+	//print_stack(stack_a);
+	//ft_printf("\n");
+	//ft_printf("\nSTACK B:\n");
+	//print_stack(stack_b);
+//
+//
+	//ft_printf("\nStack apos usar o ROTATE A\n\n");
+	//rotate_stack(stack_a);
+	//ft_printf("\nSTACK A:\n");
+	//print_stack(stack_a);
+//
+//
+	//ft_printf("\nStack apos usar o REVERSE ROTATE A\n");
+	//reverse_rotate_stack(stack_a);
+	//ft_printf("\nSTACK A:\n");
+	//print_stack(stack_a);
+
+
+
+	ft_printf("\nStack apos usar o uso do RADIX\n");
+	radix_sort(stack_a,stack_b);
 	print_stack(stack_a);
-
-	ft_printf("\nStack apos usar o PUSH B\n");
-	push_switch_stack(stack_a,stack_b);
-	ft_printf("\nSTACK A:\n");
-	print_stack(stack_a);
-	ft_printf("\n");
-	ft_printf("\nSTACK B:\n");
-	print_stack(stack_b);
-
-
-	ft_printf("\nStack apos usar o ROTATE A\n\n");
-	rotate_stack(stack_a);
-	ft_printf("\nSTACK A:\n");
-	print_stack(stack_a);
-
-
-	ft_printf("\nStack apos usar o REVERSE ROTATE A\n");
-	reverse_rotate_stack(stack_a);
-	ft_printf("\nSTACK A:\n");
-	print_stack(stack_a);
-
-
-
-
-	// TODO: Implementar radix_sort(stack_a)
 
 	free_stack(stack_a);
 	free_stack(stack_b);

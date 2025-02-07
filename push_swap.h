@@ -39,6 +39,9 @@ void push_switch_stack(t_stack *to_lose, t_stack *to_recieve);
 void rotate_stack(t_stack *stack);
 void reverse_rotate_stack(t_stack *stack);
 
+//radix.c
+void radix_sort(t_stack *stack_a, t_stack *stack_b);
+
 
 
 

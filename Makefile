@@ -15,6 +15,7 @@ SCRS =  main.c \
 		stack_manipulation.c \
 		stack_operators.c \
 		utils.c \
+		radix.c \
 
 
 all: ${LIBFT} ${NAME}
