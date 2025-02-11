@@ -17,7 +17,8 @@ int main(int argc, char **argv)
 	}
 	if (verify_order(stack_a))
 		finish_sort(stack_a, stack_b);
-	radix_sort(stack_a, stack_b);
+	else
+		radix_sort(stack_a, stack_b);
 	finish_sort(stack_a, stack_b);
 	return (0);
 }

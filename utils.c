@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-long ft_atoil(const char *str)
+long	ft_atoil(const char *str)
 {
 	int		i;
 	int		sign;
@@ -74,3 +74,5 @@ int	verify_order(t_stack *stack)
 	}
 	return (1);
 }
+
+

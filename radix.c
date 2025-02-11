@@ -1,16 +1,5 @@
 #include "push_swap.h"
 
-static void	execute_push(t_stack *from, t_stack *to, char *op)
-{
-	push_switch_stack(from, to);
-	ft_printf("%s\n", op);
-}
-static void	execute_rotate(t_stack *stack, char *op)
-{
-	rotate_stack(stack);
-	ft_printf("%s\n", op);
-}
-
 static int calculate_max_bits(int size)
 {
 	int	max_bits;
@@ -21,7 +10,7 @@ static int calculate_max_bits(int size)
 	return max_bits;
 }
 
-static void process_stack(t_stack *stack_a, t_stack *stack_b, int i, int *index_map)
+static void	process_stack(t_stack *stack_a, t_stack *stack_b, int i, int *index_map)
 {
 	int	j;
 	int	size;
@@ -50,14 +39,25 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 	int	*index_map;
 	int	i;
 
-	max_bits = calculate_max_bits(stack_a->size);
-	index_map = stack_a->lst_int;
-	i = 0;
-	while (i < max_bits)
+	if (stack_a->size == 2)
+		execute_rotate(stack_a, "sa");
+	else if (stack_a->size == 3)
+		sort_three(stack_a);
+	else if (stack_a->size == 4)
+		sort_four(stack_a, stack_b);
+	else if (stack_a->size == 5)
+		sort_five(stack_a, stack_b);
+	else
 	{
-		process_stack(stack_a, stack_b, i, index_map);
-		while (stack_b->size > 0)
-			execute_push(stack_b, stack_a, "pa");
-		i++;
+		max_bits = calculate_max_bits(stack_a->size);
+		index_map = stack_a->lst_int;
+		i = 0;
+		while (i < max_bits)
+		{
+			process_stack(stack_a, stack_b, i, index_map);
+			while (stack_b->size > 0)
+				execute_push(stack_b, stack_a, "pa");
+			i++;
+		}
 	}
 }
