@@ -6,12 +6,12 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:02:26 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/02/12 18:02:29 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:08:09 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -25,9 +25,9 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	t_node			*top;  // Ponteiro para o topo da pilha
-	int				size;  // Tamanho da pilha
-	int				*lst_int; //lista de inteiros ordenados
+	t_node			*top;
+	int				size;
+	int				*lst_int;
 }	t_stack;
 
 //verify_input.c

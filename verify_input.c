@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:02:57 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/02/12 18:03:19 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:38:55 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@ static int	is_valid_number(char *str)
 	num = ft_atoil(str);
 	if (num > 2147483647)
 		return (0);
-
 	return (1);
 }
 
 static int	is_duplicate(t_stack *stack, int num)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = stack->top;
 	while (node)
@@ -60,7 +59,7 @@ static void	sort_list(int *lst, int size)
 	{
 		i = 0;
 		modified = 0;
-		while(i < size -1)
+		while (i < size -1)
 		{
 			if (lst[i] > lst[i + 1])
 			{
@@ -81,9 +80,9 @@ static int	*sort_input(t_stack *stack)
 	int		i;
 
 	aux = stack->top;
-	lst = (int*)malloc(stack->size * sizeof(int));
+	lst = (int *)malloc(stack->size * sizeof(int));
 	i = 0;
-	while(i < stack->size)
+	while (i < stack->size)
 	{
 		lst[i++] = aux->content;
 		aux = aux->next;
@@ -120,4 +119,3 @@ t_stack	*parse_input(int argc, char **argv)
 	stack->lst_int = sort_input(stack);
 	return (stack);
 }
-

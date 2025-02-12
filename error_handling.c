@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:02:19 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/02/12 18:02:20 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:06:15 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	print_error(int i)
 {
 	if (i == 1)
 	{
-		ft_putstr_fd("Error\n",2);
+		ft_putstr_fd("Error\n", 2);
 	}
 	exit(EXIT_FAILURE);
 }

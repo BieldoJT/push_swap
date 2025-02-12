@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:02:31 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/02/12 18:02:32 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:09:19 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static int	calculate_max_bits(int size)
 	max_bits = 0;
 	while ((size - 1) >> max_bits)
 		max_bits++;
-	return max_bits;
+	return (max_bits);
 }
 
-static void	process_stack(t_stack *stack_a, t_stack *stack_b, int i, int *index_map)
+static void	process_stack(t_stack *a, t_stack *b, int i, int *index_map)
 {
 	int	j;
 	int	size;
@@ -30,17 +30,17 @@ static void	process_stack(t_stack *stack_a, t_stack *stack_b, int i, int *index_
 	int	index;
 
 	j = 0;
-	size = stack_a->size;
+	size = a->size;
 	while (j < size)
 	{
-		num = stack_a->top->content;
+		num = a->top->content;
 		index = 0;
 		while (index_map[index] != num)
 			index++;
 		if ((index >> i) & 1)
-			execute_rotate(stack_a, "ra");
+			execute_rotate(a, "ra");
 		else
-			execute_push(stack_a, stack_b, "pb");
+			execute_push(a, b, "pb");
 		j++;
 	}
 }

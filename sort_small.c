@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:02:35 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/02/12 18:02:36 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:10:16 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sort_three(t_stack *a)
 	second = a->top->next->content;
 	third = a->top->next->next->content;
 	if (first > second && second < third && first < third)
-		execute_swap(a,"sa");
+		execute_swap(a, "sa");
 	else if (first > second && second > third)
 	{
 		execute_swap(a, "sa");
@@ -56,7 +56,7 @@ void	sort_three(t_stack *a)
 		execute_rotate(a, "ra");
 	else if (first < second && second > third && first < third)
 	{
-		execute_swap(a,"sa");
+		execute_swap(a, "sa");
 		execute_rotate(a, "ra");
 	}
 	else if (first < second && second > third)
@@ -111,6 +111,3 @@ void	sort_five(t_stack *a, t_stack *b)
 		execute_push(b, a, "pa");
 	}
 }
-
-
-

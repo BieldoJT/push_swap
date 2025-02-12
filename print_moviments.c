@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:02:23 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/02/12 18:02:25 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:06:48 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	execute_push(t_stack *from, t_stack *to, char *op)
 	push_switch_stack(from, to);
 	ft_printf("%s\n", op);
 }
+
 void	execute_rotate(t_stack *stack, char *op)
 {
 	rotate_stack(stack);

@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:02:49 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/02/12 18:02:55 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:12:29 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ long	ft_atoil(const char *str)
 	{
 		result = result * 10 + (str[i] - '0');
 		i++;
-		//preguiça, se for maior ou menos q o limite, retorna um long maior
 		if (result * sign > 2147483647 || result * sign < -2147483648)
 			return (2147483648);
 	}
@@ -44,11 +43,11 @@ char	**split_arguments(int argc, char **argv, int *new_argc, t_stack *a)
 {
 	char	**args;
 
-	if (argc == 2) // Caso seja uma string única com múltiplos números
+	if (argc == 2)
 	{
 		if (argv[1][0] == '\0')
 			print_error_malloc(a);
-		args = ft_split(argv[1], ' '); // Divide a string por espaços
+		args = ft_split(argv[1], ' ');
 		if (!args)
 			print_error_malloc(a);
 		*new_argc = 0;
@@ -57,7 +56,7 @@ char	**split_arguments(int argc, char **argv, int *new_argc, t_stack *a)
 		return (args);
 	}
 	*new_argc = argc - 1;
-	return (&argv[1]); // Retorna os argumentos normais
+	return (&argv[1]);
 }
 
 void	free_args(char **args)
@@ -80,11 +79,9 @@ int	verify_order(t_stack *stack)
 	aux = stack->top;
 	while (aux->next)
 	{
-		if(aux->content > aux->next->content)
+		if (aux->content > aux->next->content)
 			return (0);
 		aux = aux->next;
 	}
 	return (1);
 }
-
-

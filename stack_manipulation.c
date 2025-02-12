@@ -6,7 +6,7 @@
 /*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:02:37 by gda-conc          #+#    #+#             */
-/*   Updated: 2025/02/12 18:02:39 by gda-conc         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:10:45 by gda-conc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	push_stack(t_stack *stack, int value)
 
 	node = malloc(sizeof(t_node));
 	if (!node)
-		return;
+		return ;
 	node->content = value;
 	node->next = stack->top;
 	stack->top = node;
@@ -68,9 +68,9 @@ void	free_stack(t_stack *stack)
 {
 	t_node	*node;
 
-	if(stack->size != 0)
+	if (stack->size != 0)
 	{
-		while(stack->size > 0)
+		while (stack->size > 0)
 		{
 			node = stack->top->next;
 			free(stack->top);
