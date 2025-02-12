@@ -1,5 +1,18 @@
 #include "push_swap.h"
 
+void print_Stack(t_stack *stack)
+{
+	t_node *aux;
+
+	aux = stack->top;
+	while (aux)
+	{
+		ft_printf("\n%d\n", aux->content);
+		aux = aux->next;
+	}
+
+}
+
 int main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -19,6 +32,7 @@ int main(int argc, char **argv)
 		finish_sort(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
+	print_Stack(stack_a);
 	finish_sort(stack_a, stack_b);
 	return (0);
 }
