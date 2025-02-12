@@ -1,8 +1,14 @@
 {
 	"files.associations": {
+		"*.sqlbook": "sql",
+		"*.ndjson": "jsonl",
+		"*.dbclient-js": "javascript",
 		"array": "c",
 		"string_view": "c",
 		"initializer_list": "c",
-		"random": "c"
+		"random": "c",
+		"chrono": "c",
+		"limits": "c",
+		"algorithm": "c"
 	}
 }

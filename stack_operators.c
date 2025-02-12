@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_operators.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/12 18:02:43 by gda-conc          #+#    #+#             */
+/*   Updated: 2025/02/12 18:02:44 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push_switch_stack(t_stack *to_lose, t_stack *to_recieve)
@@ -28,7 +40,7 @@ void	rotate_stack(t_stack *stack)
 	stack->top = temp;
 }
 
-void reverse_rotate_stack(t_stack *stack)
+void	reverse_rotate_stack(t_stack *stack)
 {
 	t_node	*aux;
 	t_node	*last_node;

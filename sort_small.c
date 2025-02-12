@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/12 18:02:35 by gda-conc          #+#    #+#             */
+/*   Updated: 2025/02/12 18:02:36 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	find_min_index(t_stack *a)
@@ -24,7 +36,6 @@ static int	find_min_index(t_stack *a)
 	return (min_index);
 }
 
-
 void	sort_three(t_stack *a)
 {
 	int	first;
@@ -35,21 +46,21 @@ void	sort_three(t_stack *a)
 	second = a->top->next->content;
 	third = a->top->next->next->content;
 	if (first > second && second < third && first < third)
-		execute_swap(a,"sa"); // sa
+		execute_swap(a,"sa");
 	else if (first > second && second > third)
 	{
-		execute_swap(a, "sa");; // sa
-		execute_reverse_rotate(a, "rra"); // rra
+		execute_swap(a, "sa");
+		execute_reverse_rotate(a, "rra");
 	}
 	else if (first > second && second < third)
-		execute_rotate(a, "ra"); // ra
+		execute_rotate(a, "ra");
 	else if (first < second && second > third && first < third)
 	{
-		execute_swap(a,"sa");; // sa
-		execute_rotate(a, "ra"); // ra
+		execute_swap(a,"sa");
+		execute_rotate(a, "ra");
 	}
 	else if (first < second && second > third)
-		execute_reverse_rotate(a, "rra"); // rra
+		execute_reverse_rotate(a, "rra");
 }
 
 void	sort_four(t_stack *a, t_stack *b)
@@ -58,17 +69,20 @@ void	sort_four(t_stack *a, t_stack *b)
 
 	min_index = find_min_index(a);
 	if (min_index == 1)
-		swap_stack(a); // sa
+		execute_swap(a, "sa");
 	else if (min_index == 2)
 	{
-		execute_rotate(a, "ra"); // ra
-		execute_rotate(a, "ra"); // ra
+		execute_rotate(a, "ra");
+		execute_rotate(a, "ra");
 	}
 	else if (min_index == 3)
-		execute_reverse_rotate(a, "rra"); // rra
-	execute_push(a, b, "pb"); // pb
-	sort_three(a);
-	execute_push(b, a, "pa"); // pa
+		execute_reverse_rotate(a, "rra");
+	if (verify_order(a) == 0)
+	{
+		execute_push(a, b, "pb");
+		sort_three(a);
+		execute_push(b, a, "pa");
+	}
 }
 
 void	sort_five(t_stack *a, t_stack *b)
@@ -77,22 +91,25 @@ void	sort_five(t_stack *a, t_stack *b)
 
 	min_index = find_min_index(a);
 	if (min_index == 1)
-		execute_swap(a, "sa"); // sa
+		execute_swap(a, "sa");
 	else if (min_index == 2)
 	{
-		execute_rotate(a, "ra"); // ra
-		execute_rotate(a, "ra"); // ra
+		execute_rotate(a, "ra");
+		execute_rotate(a, "ra");
 	}
 	else if (min_index == 3)
 	{
-		execute_reverse_rotate(a, "rra"); // rra
-		execute_reverse_rotate(a, "rra"); // rra
+		execute_reverse_rotate(a, "rra");
+		execute_reverse_rotate(a, "rra");
 	}
 	else if (min_index == 4)
-		execute_reverse_rotate(a, "rra"); // rra
-	execute_push(a, b, "pb"); // pb
-	sort_four(a, b);
-	execute_push(b, a, "pa"); // pa
+		execute_reverse_rotate(a, "rra");
+	if (verify_order(a) == 0)
+	{
+		execute_push(a, b, "pb");
+		sort_four(a, b);
+		execute_push(b, a, "pa");
+	}
 }
 
 

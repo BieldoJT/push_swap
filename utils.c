@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/12 18:02:49 by gda-conc          #+#    #+#             */
+/*   Updated: 2025/02/12 18:02:55 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 long	ft_atoil(const char *str)
@@ -28,17 +40,17 @@ long	ft_atoil(const char *str)
 	return (result * sign);
 }
 
-char	**split_arguments(int argc, char **argv, int *new_argc)
+char	**split_arguments(int argc, char **argv, int *new_argc, t_stack *a)
 {
 	char	**args;
 
 	if (argc == 2) // Caso seja uma string única com múltiplos números
 	{
 		if (argv[1][0] == '\0')
-			print_error(1);
+			print_error_malloc(a);
 		args = ft_split(argv[1], ' '); // Divide a string por espaços
 		if (!args)
-			print_error(1);
+			print_error_malloc(a);
 		*new_argc = 0;
 		while (args[*new_argc])
 			(*new_argc)++;
@@ -48,7 +60,7 @@ char	**split_arguments(int argc, char **argv, int *new_argc)
 	return (&argv[1]); // Retorna os argumentos normais
 }
 
-void free_args(char **args)
+void	free_args(char **args)
 {
 	int	i;
 

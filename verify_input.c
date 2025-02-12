@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   verify_input.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/12 18:02:57 by gda-conc          #+#    #+#             */
+/*   Updated: 2025/02/12 18:03:19 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	is_valid_number(char *str)
 {
-	int	i;
-	long num;
+	int		i;
+	long	num;
 
 	i = 0;
-	if (str[i] == '-' || str[i] == '+') // Permite sinais + e -
+	if (str[i] == '-' || str[i] == '+')
 		i++;
-	if (!str[i]) // Verifica se há números depois do sinal
+	if (!str[i])
 		return (0);
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i])) // Se não for número, erro
+		if (!ft_isdigit(str[i]))
 			return (0);
 		i++;
 	}
@@ -91,15 +103,15 @@ t_stack	*parse_input(int argc, char **argv)
 	stack = init_stack();
 	if (!stack)
 		return (NULL);
-	args = split_arguments(argc, argv, &new_argc);
+	args = split_arguments(argc, argv, &new_argc, stack);
 	i = new_argc - 1;
 	while (i != -1)
 	{
 		if (!is_valid_number(args[i]))
-			print_error(1);
+			print_error_malloc(stack);
 		num = ft_atoi(args[i]);
 		if (is_duplicate(stack, num))
-			print_error(1);
+			print_error_malloc(stack);
 		push_stack(stack, num);
 		i--;
 	}

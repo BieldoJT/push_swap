@@ -1,24 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/12 18:02:07 by gda-conc          #+#    #+#             */
+/*   Updated: 2025/02/12 18:02:16 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void print_Stack(t_stack *stack)
-{
-	t_node *aux;
-
-	aux = stack->top;
-	while (aux)
-	{
-		ft_printf("\n%d\n", aux->content);
-		aux = aux->next;
-	}
-
-}
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+
 	if (argc < 2)
-		return (0);
+		exit(1);
 	stack_a = parse_input(argc, argv);
 	if (!stack_a)
 		return (1);
@@ -32,7 +32,6 @@ int main(int argc, char **argv)
 		finish_sort(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
-	print_Stack(stack_a);
 	finish_sort(stack_a, stack_b);
 	return (0);
 }
